@@ -1,0 +1,19 @@
+/*
+Theme Name: The Simplest
+Theme URI: http://mzhou.me/
+Description: MZhou's blog theme for WordPress.
+Author: mzhou
+Version: 1.1
+Tags: white， two-columns， fixed-width
+
+
+*/
+
+@import "typo.css";
+@import "util.css";
+@import "layout.css";
+@import "header.css";
+@import "side.css";
+@import "main.css";
+@import "404.css";
+@import "comments.css";

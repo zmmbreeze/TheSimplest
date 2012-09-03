@@ -1,0 +1,12 @@
+.header {
+    margin-bottom: 60px;
+}
+
+.header h1 {
+}
+
+.header h2 {
+    margin: 0 0 0.5em;
+    color: #888;
+    font-size: 1em;
+}

@@ -1,0 +1,91 @@
+.side {
+    margin: 20px 30px 30px;
+    width: 300px;;
+    padding-top: 5.300000000000001em;
+}
+
+.side-nav {
+    margin: 0 -30px 60px 20px;
+    font-size: 1.1428571428571428em;
+}
+    .side-nav ul {
+        margin: 0;
+    }
+        .side-nav li {
+            list-style: none;
+        }
+            .side-nav a {
+                float: right;
+                width: 10em;
+                margin-right: -1px;
+                padding-right: 1em;
+                text-align: right;
+            }
+        .side-nav li.current_page_item a,
+        .side-nav li.current a {
+            border:1px solid #ccc;
+            border-right: 1px solid #FFF;
+            border-radius: 5px 0 0 5px;
+            background-color: #FFF;
+        }
+
+.side aside {
+    margin-top: 20px;
+}
+
+.side-info {
+    margin: 60px 0;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 1em;
+    color: #666;
+    border-top: 1px dashed #CCC;
+    border-bottom: 1px dashed #CCC;
+}
+    .side-info dl {
+        margin: 0;
+    }
+        .side-info a {
+            color: #666;
+        }
+        .side-info dt {
+            float: right;
+            width: 64px;
+            margin-left: 1.5em;
+            margin-bottom: 1em;
+            font-size: 1em;
+            color: #666;
+        }
+        .side-info dd {
+            text-align: right;
+        }
+        .side-info-email {
+            clear: right;
+            color: #888;
+        }
+
+.side-project {
+}
+    .side-project table {
+        width: 100%;
+        background-color: #FFF;
+    }
+    .side-project a {
+        color: #333;
+        font-weight: 500;
+        font-weight: 800\9;
+    }
+
+.side-rss {
+    position: relative;
+    text-align: right;
+}
+    .side-rss a {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 24px;
+        height: 24px;
+        text-indent: 9999px;
+        background: url(rss.png) no-repeat 0 0;
+    }

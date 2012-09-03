@@ -1,0 +1,73 @@
+/* =Comments
+-------------------------------------------------------------- */
+
+#comments {
+    margin-top: 3em;
+}
+li.comment {
+    margin-bottom: 1em;
+    padding-left: 0.5em;
+    overflow: hidden;
+    border-left: 0.1875em solid #348EC0;
+}
+li.comment:nth-child(3n+2) {
+    border-left-color: #80CB37;
+}
+li.comment:nth-child(3n+2) li.comment {
+    border-left-color: #80CB37;
+}
+li.comment:nth-child(3n+3) {
+    border-left-color: #E1523D;
+}
+li.comment:nth-child(3n+3) li.comment {
+    border-left-color: #E1523D;
+}
+#comments-title {
+    margin-bottom: 1em;
+    font-size: 1.25em;
+}
+.commentlist li {
+    list-style: none;
+}
+.comment-author {
+    margin-bottom: 0.5em;
+}
+.comment-author img {
+    float: left;
+    _display: inline;
+    margin-right: 0.5em;
+}
+.comment-content {
+    margin-top: 0.5em;
+    padding: 0.5em;
+    line-height: 1.62;
+}
+.comment-content blockquote {
+    padding: 1em;
+}
+.comment .reply {
+    font-size: 0.875em;
+    margin-bottom: 1em;
+}
+#respond {
+    margin-left: 1em;
+}
+#reply-title {
+    margin-bottom: 0.5em;
+}
+#respond input[type=text] {
+    display: block;
+    width: 60%;
+}
+#respond textarea {
+    display: block;
+    margin: 0 0 1em;
+    width: 80%;
+}
+#respond .form-allowed-tags {
+    clear: both;
+    width: 80%;
+}
+#respond .form-allowed-tags code {
+    display: block;
+}
