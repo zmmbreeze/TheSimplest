@@ -89,3 +89,17 @@
         text-indent: 9999px;
         background: url(rss.png) no-repeat 0 0;
     }
+
+
+#searchform {
+    margin: 20px 0 0 0;
+    text-align: center;
+}
+    .screen-reader-text {
+        position:absolute!important;
+        height:1px;
+        width:1px;
+        overflow:hidden;
+        clip:rect(1px,1px,1px,1px);
+        *clip:rect(1px 1px 1px 1px);
+    }

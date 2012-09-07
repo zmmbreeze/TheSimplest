@@ -29,18 +29,10 @@
 	<?php if ( have_comments() ) : ?>
 		<h2 id="comments-title">
 			<?php
-				printf( _n( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'toolbox' ),
+				printf( _n( '有1条评论', '有%1$s条评论', get_comments_number(), 'toolbox' ),
 					number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' );
 			?>
 		</h2>
-
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
-		<nav id="comment-nav-above">
-			<h1 class="assistive-text section-heading"><?php _e( 'Comment navigation', 'toolbox' ); ?></h1>
-			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'toolbox' ) ); ?></div>
-			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'toolbox' ) ); ?></div>
-		</nav>
-		<?php endif; // check for comment navigation ?>
 
 		<ol class="commentlist">
 			<?php
@@ -55,10 +47,12 @@
 		</ol>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
-		<nav id="comment-nav-below">
-			<h1 class="assistive-text section-heading"><?php _e( 'Comment navigation', 'toolbox' ); ?></h1>
-			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'toolbox' ) ); ?></div>
-			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'toolbox' ) ); ?></div>
+		<nav id="comment-nav-below" class="pagination pagination-centered">
+			<?php 
+			paginate_comments_links(array(
+	            'type' => 'list'
+        	))
+        	?>
 		</nav>
 		<?php endif; // check for comment navigation ?>
 
@@ -68,7 +62,7 @@
 		// If comments are closed and there are no comments, let's leave a little note, shall we?
 		if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
-		<p class="nocomments"><?php _e( 'Comments are closed.', 'toolbox' ); ?></p>
+		<p class="nocomments"><?php _e( '评论已关闭。', 'toolbox' ); ?></p>
 	<?php endif; ?>
 
 	<?php comment_form(); ?>

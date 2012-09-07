@@ -59,15 +59,6 @@
         }
 
 
-#searchform {
-    margin-top: 40px;
-    text-align: center;
+.entry-content a {
+    color: #3A87AD;
 }
-    .screen-reader-text {
-        position:absolute!important;
-        height:1px;
-        width:1px;
-        overflow:hidden;
-        clip:rect(1px,1px,1px,1px);
-        *clip:rect(1px 1px 1px 1px);
-    }

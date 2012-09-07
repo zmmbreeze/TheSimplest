@@ -26,11 +26,18 @@ li.comment:nth-child(3n+3) li.comment {
     margin-bottom: 1em;
     font-size: 1.25em;
 }
+ol.commentlist {
+    margin: 0;
+}
 .commentlist li {
     list-style: none;
 }
 .comment-author {
-    margin-bottom: 0.5em;
+    margin-bottom: 0;
+}
+.comment-meta {
+    margin-top: -2px;
+    font-size: 10px;
 }
 .comment-author img {
     float: left;
@@ -70,4 +77,17 @@ li.comment:nth-child(3n+3) li.comment {
 }
 #respond .form-allowed-tags code {
     display: block;
+}
+#commentform p {
+    width: 100%;
+    overflow: hidden;
+}
+#commentform label {
+    float: left;
+    width: 80px;
+}
+#commentform .required {
+    float: left;
+    _display: inline;
+    margin-left: -1em;
 }

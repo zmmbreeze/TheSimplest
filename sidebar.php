@@ -30,6 +30,7 @@
                         em1tYnJlZXplMDgyNUBnbWFpbC5jb20=
                     </dd>
                 </dl>
+                <?php get_search_form(); ?>
             </aside>
 
             <aside class="side-rss">
@@ -66,13 +67,6 @@
                 </table>
             </aside>
 
-            <aside class="">
-                <h2>Friends</h2>
-                <ul class="xoxo blogroll">
-                    <li><a target="_blank" title="立志于做coder中弹吉他最好的人、吉他手中coding最强的人！" rel="friend" href="http://myjser.com/">恋之物语</a></li>
-                    <li><a title="黄月月鸟飞，立志于做优秀的c++ coder" rel="friend" href="http://nodejser.com/">黄月月鸟飞</a></li>
-                    <li><a href="http://valdanito.com">valdanito</a></li>
-                </ul>
-            </aside>
-        </div><!-- #secondary .widget-area -->
+            <?php wp_list_bookmarks('category_before=<aside>&category_after=</aside>'); ?> 
+        </div>
     </div>

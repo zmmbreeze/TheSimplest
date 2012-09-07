@@ -39,12 +39,21 @@ get_header(); ?>
             <span><?php comments_number( '', '(1)', '(%)' ); ?> </span>
             <time><?php the_modified_date('Y-m-d') ?><!--日期--></time>
         </li>
-        <ul class="pager">
-            <li><?php previous_posts_link('&laquo; 上一页') ?></li>
-            <li><?php next_posts_link('下一页 &raquo;','') ?></li>
-        </ul>
         <?php endwhile; ?>
     </ol>
+    <div class="pagination pagination-centered">
+    <?php
+        global $wp_query;
+        $big = 999999999; // need an unlikely integer
+        echo paginate_links( array(
+            'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+            'format' => '?paged=%#%',
+            'current' => max( 1, get_query_var('paged') ),
+            'total' => $wp_query->max_num_pages,
+            'type' => 'list'
+        ) );
+    ?>
+    </div>
     <?php endif; ?>
 </div><!-- .main -->
 </div><!-- .left -->
