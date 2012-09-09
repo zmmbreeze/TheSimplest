@@ -9,8 +9,7 @@ body {
 .container {
     *position: relative;
     height: 100%;
-    overflow: hidden;
-    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .leftmask {
@@ -43,4 +42,116 @@ body {
 .right {
     position: relative;
     float: right;
+}
+
+.side {
+    margin: 20px 30px 30px;
+    width: 300px;;
+    overflow: visible;
+    padding-top: 5.300000000000001em;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 958px) {
+    html,
+    body {
+        min-width: 768px;
+    }
+    .leftoffset {
+        right: 174px;
+    }
+    .side {
+        width: 190px;
+        margin-left: 0;
+        margin-right: 10px;
+    }
+        .side-nav {
+            margin-right: -10px !important;
+        }
+        .side-info dt {
+            float: none !important;
+            width: auto !important;
+            text-align: right;
+        }
+    .left {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    #searchform input[type="text"] {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    html,
+    body {
+        min-width: 0;
+        height: auto;
+        overflow: auto;
+        background: #FFF;
+    }
+
+    .container {
+        *position: relative;
+        height: 100%;
+        overflow: hidden;
+        overflow-y: auto;
+    }
+
+    .leftmask {
+        float: none;
+        position: static;
+        right: auto;
+        width: 100%;
+        height: 100%;
+        background-color: #FFF;
+    }
+
+    .leftoffset {
+        float: none;
+        position: static;
+        right: auto;
+        width: 100%;
+        min-height: auto;
+        border-right: none;
+        background-color: #FFF;
+    }
+
+    .left {
+        position: static;
+        float: none;
+        right: auto;
+        width: auto;
+        padding: 10px;
+    }
+
+    .right {
+        position: static;
+        float: none;
+        background-color: #F5F5F5;
+    }
+
+    .side {
+        padding-top: 10px;
+        width: auto;
+    }
+        .side-nav {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+            .side-nav li.current_page_item a,
+            .side-nav li.current a {
+                border-right: 1px solid #CCC !important;
+                border-radius: 5px !important;
+            }
+            .side-nav li a {
+                float: left !important;
+                width: 50% !important;
+                margin-right: 0 !important;
+                padding-right: 0 !important;
+                text-align: center !important;
+            }
+
+    #searchform input[type="text"] {
+        width: 90%;
+    }
 }

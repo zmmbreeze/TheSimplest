@@ -1,7 +1,5 @@
-.side {
-    margin: 20px 30px 30px;
-    width: 300px;;
-    padding-top: 5.300000000000001em;
+.side aside {
+    word-wrap: break-word;
 }
 
 .side-nav {
@@ -61,13 +59,14 @@
         }
         .side-info-email {
             clear: right;
+            word-wrap: break-word;
             color: #888;
         }
 
 .side-project {
 }
     .side-project table {
-        width: 100%;
+        width: 98%;
         background-color: #FFF;
     }
     .side-project a {
@@ -86,10 +85,10 @@
         right: 0;
         width: 24px;
         height: 24px;
+        overflow: hidden;
         text-indent: 9999px;
         background: url(rss.png) no-repeat 0 0;
     }
-
 
 #searchform {
     margin: 20px 0 0 0;
