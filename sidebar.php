@@ -7,7 +7,7 @@
  */
 ?>
 
-    <div class="right">
+    <div class="left">
         <div class="side" role="complementary">
             <nav class="side-nav clearfix">
                 <?php wp_page_menu( array( 'show_home' => 'Blog', 'sort_column' => 'menu_order' ) ); ?>

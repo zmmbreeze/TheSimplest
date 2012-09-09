@@ -31,7 +31,7 @@ body {
     background-color: #F5F5F5;
 }
 
-.left {
+.right {
     position: relative;
     float: left;
     right: -100%;
@@ -39,7 +39,7 @@ body {
     padding: 30px;
 }
 
-.right {
+.left {
     position: relative;
     float: right;
 }
@@ -51,7 +51,7 @@ body {
     padding-top: 5.300000000000001em;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 958px) {
+@media only screen and (min-width: 768px) and (max-width: 959px) {
     html,
     body {
         min-width: 768px;

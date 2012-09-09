@@ -60,7 +60,7 @@
     <?php do_action( 'before' ); ?>
     <div class="leftmask">
     <div class="leftoffset">
-    <div class="left">
+    <div class="right">
         <?php if (!is_single() && !is_tag() && !is_category() && !is_page()) { ?>
         <header class="header" role="banner">
             <hgroup>
