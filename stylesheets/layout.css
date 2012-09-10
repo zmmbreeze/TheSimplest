@@ -72,7 +72,7 @@ body {
             width: auto !important;
             text-align: right;
         }
-    .left {
+    .right {
         padding-left: 10px;
         padding-right: 10px;
     }
@@ -116,7 +116,7 @@ body {
         background-color: #FFF;
     }
 
-    .left {
+    .right {
         position: static;
         float: none;
         right: auto;
@@ -124,7 +124,7 @@ body {
         padding: 10px;
     }
 
-    .right {
+    .left {
         position: static;
         float: none;
         background-color: #F5F5F5;
