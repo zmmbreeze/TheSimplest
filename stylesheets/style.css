@@ -11,9 +11,9 @@ Tags: white， two-columns， fixed-width
 
 @import "typo.css";
 @import "util.css";
-@import "layout.css";
 @import "header.css";
 @import "side.css";
 @import "main.css";
 @import "404.css";
 @import "comments.css";
+@import "layout.css";
