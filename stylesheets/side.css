@@ -15,7 +15,6 @@
             .side-nav a {
                 float: right;
                 width: 10em;
-                margin-right: -1px;
                 padding-right: 1em;
                 text-align: right;
                 border:1px solid #F5F5F5;
@@ -23,6 +22,7 @@
             }
         .side-nav li.current_page_item a,
         .side-nav li.current a {
+            margin-right: -1px;
             border:1px solid #ccc;
             border-right: 1px solid #FFF;
             border-radius: 5px 0 0 5px;
