@@ -62,3 +62,94 @@
 .entry-content a {
     color: #3A87AD;
 }
+
+/* headers color scheme */
+.entry-header h1 {
+    margin-left: -30px;
+    padding: 0.25em 0 0.25em 30px;
+    color: #FFF;
+    background-color: #83A1D5;
+}
+.entry-content .entry-content-L1-3n1,
+.entry-content .entry-content-L1-3n2,
+.entry-content .entry-content-L1-3n3,
+.entry-content h1,
+.entry-content h2 {
+    margin-left: -30px;
+    padding: 0 0 0 30px;
+    color: #FFF;
+    background-color: #96B3D3;
+}
+.entry-content .entry-content-L2-3n1,
+.entry-content .entry-content-L2-3n2,
+.entry-content .entry-content-L2-3n3 {
+    margin-left: -30px;
+    padding-left: 20px;
+    border-left-width: 10px;
+    border-left-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+.entry-content .entry-content-L1-3n1,
+.entry-content h1:nth-of-type(3n+1),
+.entry-content h2:nth-of-type(3n+1) {
+    color: #FFF;
+    background-color: #96B3D3;
+}
+.entry-content .entry-content-L2-3n1 {
+    border-left-color: #96B3D3;
+    border-bottom-color: #96B3D3;
+}
+.entry-content .entry-content-L1-3n2,
+.entry-content h1:nth-of-type(3n+2),
+.entry-content h2:nth-of-type(3n+2) {
+    color: #FFF;
+    background-color: #AFC851;
+}
+.entry-content .entry-content-L2-3n2 {
+    border-left-color: #AFC851;
+    border-bottom-color: #AFC851;
+}
+.entry-content .entry-content-L1-3n3,
+.entry-content h1:nth-of-type(3n+3),
+.entry-content h2:nth-of-type(3n+3) {
+    color: #FFF;
+    background-color: #D06866;
+}
+.entry-content .entry-content-L2-3n3 {
+    border-left-color: #D06866;
+    border-bottom-color: #D06866;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    .entry-header h1 {
+        margin-left: -10px;
+        padding: 0.25em 0 0.25em 10px;
+    }
+    .entry-content .entry-content-L1-3n1,
+    .entry-content .entry-content-L1-3n2,
+    .entry-content .entry-content-L1-3n3,
+    .entry-content h1,
+    .entry-content h2 {
+        margin-left: -10px;
+        padding: 0 0 0 10px;
+    }
+    .entry-content .entry-content-L2-3n1,
+    .entry-content .entry-content-L2-3n2,
+    .entry-content .entry-content-L2-3n3 {
+        margin-left: -10px;
+        padding-left: 5px;
+        border-left-width: 5px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .entry-content .entry-content-L2-3n1,
+    .entry-content .entry-content-L2-3n2,
+    .entry-content .entry-content-L2-3n3 {
+        margin-left: -10px;
+        padding-left: 10px;
+        border-left-width: 5px;
+        border-bottom: 0;
+    }
+}

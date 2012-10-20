@@ -13,7 +13,7 @@
         </div><!-- .entry-meta -->
     </header><!-- .entry-header -->
 
-    <div class="entry-content">
+    <div class="entry-content" id="entryContent">
         <?php the_content(); ?>
         <?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'toolbox' ), 'after' => '</div>' ) ); ?>
     </div><!-- .entry-content -->
