@@ -1,6 +1,6 @@
 html,
 body {
-    min-width: 960px;
+    min-width: 1000px;
     height: 100%;
     overflow: hidden;
     background: #FFF;
@@ -36,7 +36,7 @@ body {
     position: relative;
     float: left;
     right: -100%;
-    width: 540px;
+    width: 580px;
     padding: 30px;
 }
 
@@ -76,6 +76,7 @@ body {
     .right {
         padding-left: 10px;
         padding-right: 10px;
+        width: 540px;
     }
     #searchform input[type="text"] {
         width: 90%;
