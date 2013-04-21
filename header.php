@@ -56,6 +56,13 @@
 </head>
 
 <body <?php body_class(); ?>>
+<div class="rainbow">
+    <div class="rainbow-color-0 rainbow-color"></div>
+    <div class="rainbow-color-1 rainbow-color"></div>
+    <div class="rainbow-color-2 rainbow-color"></div>
+    <div class="rainbow-color-3 rainbow-color"></div>
+    <div class="rainbow-color-4 rainbow-color"></div>
+</div>
 <div class="container typo">
     <?php do_action( 'before' ); ?>
     <div class="leftmask">

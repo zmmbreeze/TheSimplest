@@ -1,5 +1,5 @@
 .main {
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
 
 .main-articles {
@@ -59,97 +59,609 @@
         }
 
 
-.entry-content a {
-    color: #3A87AD;
-}
-
 /* headers color scheme */
 .entry-header h1 {
-    margin-left: -30px;
-    padding: 0.25em 0 0.25em 30px;
-    color: #FFF;
-    background-color: #83A1D5;
+    margin-bottom: 0;
+    line-height: 1.7em;
+    font-size: 32px;
+    text-align: center;
 }
-.entry-content .entry-content-L1-3n1,
-.entry-content .entry-content-L1-3n2,
-.entry-content .entry-content-L1-3n3,
+.entry-meta {
+    padding: 0 16px;
+    margin-top: 27.2px;
+    margin-bottom: 27.2px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #888;
+}
+
+/**
+ * Entry.css
+ *
+ * @author mzhou / @zhoumm
+ * @log 0.1
+ *      0.2 修改二级及更深层次的pre的四周都为圆角
+ *          修改li中第一层第一个p/div的不缩进
+ *          li之间的上下间距修改为0.25em
+ *      0.3 修改中文字体
+ *          修改abbr样式
+ *          修改li的list-type-position为inside
+ *      0.4 增加iframe支持,支持jsfiddle/speaker deck/slide share
+ *          支持disqus
+ *          修改四级标题样式，增加左边框
+ *          去掉header的border-bottom
+ *          去掉iframe为block的样式，为了支持github start button这样的外部按钮
+ *      0.5 修改hr的width为max-width，确保小屏幕不会显示横向滚动条
+ *          增加文章右内边距，优化小屏幕、小宽度下的样式
+ *      0.6 增加列表的嵌套样式
+ *      0.7 拆分文件
+ *          增加可选的mutli-column支持
+ *          修改宽度默认值为60px
+ *          修改h3-icon默认值为空
+ *          修改pre样式，去掉左右边框、圆角等等样式。使其适应性更强一些。并设置背景默认为transparent
+ *          添加了两个配置：@pre-back-color 和 @pre-border-color
+ *          去掉了四级标题的边框和下边距合并，保证样式普通
+ *          修改行内code的上下内边距为0.15em，使其在WIN chrome下更高些
+ *          修改a的下划线样式，确保下划线不和中文文字粘在一起
+ *          优化字体，增加wenquanyi 微米黑字体，ubuntu linux firefox立马好看不少
+ *          修复em下划线的颜色为word-color
+ *          修复h1, h2内部的u,em,abbr的下划线颜色
+ *          修证h1, h2, h3的padding-left和padding-right值
+ *      0.8 增加居中、居右两种布局
+ *          删掉三四级标题的配置
+ *          删除普通a标签的左右边距
+ *      0.9 增加限制图片的宽度
+ *          增加section与article标签的支持
+ *          使pre标签不会自动换行
+ *          移动@font-family到config.less中，使其可配置
+ *          增加配置@code-font-family
+ *      1.0 增加配置@use-index
+ *          重新修改全部样式，支持vertical rhythm，更适合阅读
+ *          去掉不必要的配置
+ *          直接子元素为img时，默认其为block元素
+ *          去掉了border相关的样式
+ *      1.1 使用px替换em
+ *          改进排版，去掉了些可配置项
+ *          基础less选择器修改为ext-entry
+ *      1.2 修改布局的实现方式
+ *          修复hr的位置
+ *          修复无标签文字位置的bug
+ *          修改code的默认背景色
+ *          默认关闭缩近选项
+ *      1.3 增加margin-bottom，使得对无标签文字的支持更好
+ *          修复baseline.js的bug
+ *
+ */
+/* ===========================================================
+   Config
+   =========================================================== */
+/* ==========================================================
+   Optional config
+   ========================================================== */
+/*
+ * bug 太多，用途不够广泛
+ * 对于pre th td这样的标签就会在firefox下有很多bug
+.fake-border-top-bottom (@color: #CCC, @width: 1px) {
+    position: relative;
+    &:before,
+    &:after {
+        position: absolute;
+        z-index: 1;
+        content: '';
+        width: 100%;
+        height: @width;
+        background-color: @color;
+    }
+    &:before {
+        top: 0;
+        left: 0;
+    }
+    &:after {
+        bottom: 0;
+        left: 0;
+    }
+}
+.fake-border-bottom (@color: #CCC, @width: 1px) {
+    position: relative;
+    &:after {
+        position: absolute;
+        z-index: 1;
+        content: '';
+        width: 100%;
+        height: @width;
+        background-color: @color;
+    }
+    &:after {
+        bottom: 0;
+        left: 0;
+    }
+}
+.fake-border-top (@color: #CCC, @width: 1px) {
+    position: relative;
+    &:before {
+        position: absolute;
+        z-index: 1;
+        content: '';
+        width: 100%;
+        height: @width;
+        background-color: @color;
+    }
+    &:before {
+        top: 0;
+        left: 0;
+    }
+}
+*/
+/* ==========================================================================
+   Entry content
+   ========================================================================== */
+/* ================================================
+   Multi-column
+   多栏样式，很多浏览器不支持，慎用！
+   ================================================ */
+.entry-content {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 608px;
+  padding: 0 16px;
+  line-height: 1.7;
+  color: #666666;
+  word-wrap: break-word;
+  font-size: 16px;
+  font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", /* typekit */
+ "Lucida Grande", /* mac */
+ "Hiragino Sans GB", "Hiragino Sans GB W3", /* mac */
+ "Microsoft YaHei", /* windows */
+ "wenquanyi micro hei", /* linux */
+ sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  /* ==========
+       Typography
+       ========== */
+
+  /* === block content === */
+
+  /* === inline content === */
+
+  /* 强调 */
+
+  /* code */
+
+  /* image */
+
+  /* 书名号(han.css) */
+
+  /* 缩写 */
+
+  /* 定义 */
+
+  /* 标记 */
+
+  /* 行内引用 */
+
+  /* 旁注 */
+
+  /* 上下标 */
+
+  /* disqus支持 */
+
+}
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6,
+.entry-content div,
+.entry-content p,
+.entry-content blockquote,
+.entry-content pre,
+.entry-content ul,
+.entry-content ol,
+.entry-content table,
+.entry-content figure,
+.entry-content iframe,
+.entry-content section,
+.entry-content article {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+.entry-content h1:first-child,
+.entry-content h2:first-child,
+.entry-content h3:first-child,
+.entry-content h4:first-child,
+.entry-content h5:first-child,
+.entry-content h6:first-child,
+.entry-content div:first-child,
+.entry-content p:first-child,
+.entry-content blockquote:first-child,
+.entry-content pre:first-child,
+.entry-content ul:first-child,
+.entry-content ol:first-child,
+.entry-content table:first-child,
+.entry-content figure:first-child,
+.entry-content iframe:first-child,
+.entry-content section:first-child,
+.entry-content article:first-child {
+  margin-top: 0;
+}
+.entry-content h1:last-child,
+.entry-content h2:last-child,
+.entry-content h3:last-child,
+.entry-content h4:last-child,
+.entry-content h5:last-child,
+.entry-content h6:last-child,
+.entry-content div:last-child,
+.entry-content p:last-child,
+.entry-content blockquote:last-child,
+.entry-content pre:last-child,
+.entry-content ul:last-child,
+.entry-content ol:last-child,
+.entry-content table:last-child,
+.entry-content figure:last-child,
+.entry-content iframe:last-child,
+.entry-content section:last-child,
+.entry-content article:last-child {
+  margin-bottom: 0;
+}
+.entry-content > h1,
+.entry-content > h2,
+.entry-content > h3,
+.entry-content > h4,
+.entry-content > h5,
+.entry-content > h6,
+.entry-content > div,
+.entry-content > p,
+.entry-content > blockquote,
+.entry-content > pre,
+.entry-content > ul,
+.entry-content > ol,
+.entry-content > table,
+.entry-content > figure,
+.entry-content > iframe,
+.entry-content > section,
+.entry-content > article,
+.entry-content > img {
+  margin-top: 27.2px;
+  margin-bottom: 27.2px;
+  display: block;
+}
+.entry-content > table {
+  display: table;
+}
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+  font-weight: bold;
+}
 .entry-content h1,
 .entry-content h2 {
-    margin-left: -30px;
-    padding: 0 0 0 30px;
-    color: #FFF;
-    background-color: #96B3D3;
+  color: #666666;
+  background-color: transparent;
 }
-.entry-content .entry-content-L2-3n1,
-.entry-content .entry-content-L2-3n2,
-.entry-content .entry-content-L2-3n3 {
-    margin-left: -30px;
-    padding-left: 20px;
-    border-left-width: 10px;
-    border-left-style: solid;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
+.entry-content h1 a,
+.entry-content h2 a {
+  color: #666666;
 }
-.entry-content .entry-content-L1-3n1,
-.entry-content h1:nth-of-type(3n+1),
-.entry-content h2:nth-of-type(3n+1) {
-    color: #FFF;
-    background-color: #96B3D3;
+.entry-content h1 a,
+.entry-content h2 a,
+.entry-content h1 em,
+.entry-content h2 em,
+.entry-content h1 u,
+.entry-content h2 u,
+.entry-content h1 abbr[title],
+.entry-content h2 abbr[title] {
+  border-bottom-color: #666666;
 }
-.entry-content .entry-content-L2-3n1 {
-    border-left-color: #96B3D3;
-    border-bottom-color: #96B3D3;
+.entry-content h1 {
+  font-size: 28px;
+  line-height: 54.4px;
+  text-align: center;
 }
-.entry-content .entry-content-L1-3n2,
-.entry-content h1:nth-of-type(3n+2),
-.entry-content h2:nth-of-type(3n+2) {
-    color: #FFF;
-    background-color: #AFC851;
+.entry-content h2 {
+  font-size: 21px;
+  line-height: 27.2px;
+  text-align: center;
 }
-.entry-content .entry-content-L2-3n2 {
-    border-left-color: #AFC851;
-    border-bottom-color: #AFC851;
+.entry-content h3 {
+  font-size: 16.8px;
+  line-height: 27.2px;
+  text-align: left;
 }
-.entry-content .entry-content-L1-3n3,
-.entry-content h1:nth-of-type(3n+3),
-.entry-content h2:nth-of-type(3n+3) {
-    color: #FFF;
-    background-color: #D06866;
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+  line-height: 27.2px;
+  font-size: 14px;
+  text-align: left;
 }
-.entry-content .entry-content-L2-3n3 {
-    border-left-color: #D06866;
-    border-bottom-color: #D06866;
+.entry-content blockquote {
+  position: relative;
+  padding: 27.2px 64px;
 }
-
-@media only screen and (min-width: 768px) and (max-width: 959px) {
-    .entry-header h1 {
-        margin-left: -10px;
-        padding: 0.25em 0 0.25em 10px;
-    }
-    .entry-content .entry-content-L1-3n1,
-    .entry-content .entry-content-L1-3n2,
-    .entry-content .entry-content-L1-3n3,
-    .entry-content h1,
-    .entry-content h2 {
-        margin-left: -10px;
-        padding: 0 0 0 10px;
-    }
-    .entry-content .entry-content-L2-3n1,
-    .entry-content .entry-content-L2-3n2,
-    .entry-content .entry-content-L2-3n3 {
-        margin-left: -10px;
-        padding-left: 5px;
-        border-left-width: 5px;
-    }
+.entry-content blockquote:before {
+  position: absolute;
+  content: '\275D';
+  top: 0;
+  left: 16px;
+  font-size: 3em;
+  color: #cccccc;
 }
-
-@media only screen and (max-width: 767px) {
-    .entry-content .entry-content-L2-3n1,
-    .entry-content .entry-content-L2-3n2,
-    .entry-content .entry-content-L2-3n3 {
-        margin-left: -10px;
-        padding-left: 10px;
-        border-left-width: 5px;
-        border-bottom: 0;
-    }
+.entry-content blockquote:after {
+  position: absolute;
+  content: '\275E';
+  bottom: 0;
+  right: 16px;
+  margin-right: -0.25em;
+  font-size: 3em;
+  color: #cccccc;
+}
+.entry-content pre {
+  padding: 12.6px 16px;
+  line-height: 27.2px;
+  font-size: 14px;
+  white-space: pre;
+  word-wrap: normal;
+  overflow: auto;
+  font-family: consolas, monaco, monospace, serif;
+  border: 1px solid #e1e1e8;
+  border-right: none;
+  border-left: none;
+  background-color: #f7f7f9;
+}
+.entry-content ul,
+.entry-content ol {
+  padding-left: 64px;
+}
+.entry-content ul li,
+.entry-content ol li {
+  list-style-position: outside;
+}
+.entry-content ul li {
+  list-style-type: square;
+}
+.entry-content ul li ul li {
+  list-style-type: disc;
+}
+.entry-content ul li ul li ul li {
+  list-style-type: circle;
+}
+.entry-content ol li {
+  list-style-type: decimal;
+}
+.entry-content ol li ol li {
+  list-style-type: upper-roman;
+}
+.entry-content ol li ol li ol li {
+  list-style-type: lower-roman;
+}
+.entry-content li > ul,
+.entry-content li > ol {
+  padding-left: 48px;
+}
+.entry-content hr {
+  position: relative;
+  padding-top: 27.2px;
+  margin-top: -2px;
+  margin-bottom: 54.4px;
+  height: 0;
+  background: none;
+  border: none;
+  border-bottom: 2px dashed #888888;
+}
+.entry-content hr:before,
+.entry-content hr:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  width: 30%;
+  height: 2px;
+  pointer-events: none;
+}
+.entry-content hr:before {
+  left: 0;
+  background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0) 0%, #ffffff 80%, #ffffff 100%);
+  background-image: -moz-linear-gradient(right, rgba(255, 255, 255, 0) 0%, #ffffff 80%, #ffffff 100%);
+  background-image: -ms-linear-gradient(right, rgba(255, 255, 255, 0) 0%, #ffffff 80%, #ffffff 100%);
+  background-image: -o-linear-gradient(right, rgba(255, 255, 255, 0) 0%, #ffffff 80%, #ffffff 100%);
+  background-image: linear-gradient(right, rgba(255, 255, 255, 0) 0%, #ffffff 80%, #ffffff 100%);
+}
+.entry-content hr:after {
+  right: 0;
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 80%, #ffffff 100%);
+  background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 80%, #ffffff 100%);
+  background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 80%, #ffffff 100%);
+  background-image: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 80%, #ffffff 100%);
+  background-image: linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 80%, #ffffff 100%);
+}
+.entry-content table {
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 320px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  border-radius: 0.5em;
+}
+.entry-content table caption {
+  padding: 13.6px 0;
+}
+.entry-content table thead th {
+  text-align: left;
+}
+.entry-content table tbody {
+  margin: 0 16px;
+}
+.entry-content table tbody tr:nth-child(odd) td,
+.entry-content table tbody tr:nth-child(odd) th {
+  background-color: #f9f9f9;
+}
+.entry-content table tbody tr:last-child td,
+.entry-content table tbody tr:last-child th {
+  padding-bottom: 11.6px;
+}
+.entry-content table td,
+.entry-content table th {
+  padding: 13.6px 16px 12.6px;
+  border: 1px solid #dddddd;
+}
+.entry-content iframe {
+  vertical-align: text-bottom;
+}
+.entry-content a {
+  padding-bottom: 0.025em;
+  color: #006699;
+  text-decoration: none;
+  border-bottom-color: #0088cc;
+}
+.entry-content a[onclick],
+.entry-content a[href^="javascript:"] {
+  margin: 0 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 0.8571428571428571em;
+  color: #ffffff;
+  background-color: #96b3d3;
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  -ms-border-radius: 0.25em;
+  -o-border-radius: 0.25em;
+  border-radius: 0.25em;
+  border-bottom: none;
+}
+.entry-content a[onclick]:visited,
+.entry-content a[href^="javascript:"]:visited {
+  color: #ffffff;
+}
+.entry-content a:focus {
+  outline: thin dotted;
+}
+.entry-content a:visited {
+  color: #551a8b;
+  border-bottom-color: #551a8b;
+}
+.entry-content a:hover {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+.entry-content a:hover,
+.entry-content a:active {
+  outline: 0;
+}
+.entry-content b,
+.entry-content strong {
+  font-weight: bold;
+}
+.entry-content u,
+.entry-content em {
+  padding-bottom: .05em;
+  font-style: normal;
+  font-weight: normal;
+  border-bottom: 2px dotted #b3b3b3;
+}
+.entry-content u {
+  text-decoration: none;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+.entry-content em + em,
+.entry-content em + u,
+.entry-content u + em,
+.entry-content u + u {
+  margin-left: 0.125em;
+}
+.entry-content code {
+  padding: 0.15em 0.25em;
+  margin: 0 0.25em;
+  background: #fee9cc;
+  font-family: consolas, monaco, monospace, serif;
+  font-size: 0.8571428571428571em;
+  color: #666666;
+  border: 1px solid transparent;
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  -ms-border-radius: 0.25em;
+  -o-border-radius: 0.25em;
+  border-radius: 0.25em;
+}
+.entry-content pre code {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  color: #666666;
+  background: none;
+  border: none;
+}
+.entry-content img {
+  max-width: 100%;
+  border: 0;
+}
+.entry-content > img {
+  max-width: 100%;
+}
+.entry-content figure img {
+  display: block;
+  margin: 0 auto;
+}
+.entry-content figure figcaption {
+  display: block;
+  text-align: center;
+  font-style: italic;
+}
+.entry-content cite {
+  font-style: inherit;
+}
+.entry-content cite:before,
+.entry-content cite:after {
+  content: "《";
+  line-height: inherit;
+}
+.entry-content cite:after {
+  content: "》";
+}
+.entry-content abbr[title] {
+  padding-bottom: 0.05em;
+  cursor: help;
+  border-bottom: 1px dotted #666666;
+}
+.entry-content dfn {
+  font-style: italic;
+}
+.entry-content mark {
+  background: #ffff00;
+  color: #666666;
+}
+.entry-content q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+.entry-content small {
+  font-size: 80%;
+}
+.entry-content sub,
+.entry-content sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.entry-content sup {
+  top: -0.5em;
+}
+.entry-content sub {
+  bottom: -0.25em;
+}
+.entry-content #disqus_thread {
+  margin-top: 27.2px;
 }

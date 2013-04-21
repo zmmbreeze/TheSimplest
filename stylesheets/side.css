@@ -13,20 +13,25 @@
             list-style: none;
         }
             .side-nav a {
-                float: right;
-                width: 10em;
+                float: left;
+                margin-left: -1px;
+                width: 30%;
                 padding-right: 1em;
-                text-align: right;
+                text-align: center;
                 border:1px solid #F5F5F5;
                 box-sizing: border-box;
             }
         .side-nav li.current_page_item a,
         .side-nav li.current a {
+            /*
             margin-right: -1px;
             border:1px solid #ccc;
             border-right: 1px solid #FFF;
             border-radius: 5px 0 0 5px;
             background-color: #FFF;
+            */
+            color: #FFF;
+            background-color: #469FE1;
         }
 
 .side aside {
