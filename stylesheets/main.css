@@ -74,6 +74,10 @@
     line-height: 1.7;
     color: #888;
 }
+.entry-content ul,
+.entry-content ol {
+    margin-left: 0;
+}
 
 /**
  * Entry.css

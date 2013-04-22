@@ -55,18 +55,6 @@ iframe {
     display: block;
 }
 
-/* 块/段落引用 */
-blockquote {
-    margin: 1em 4em 1em 2em;
-    padding: 0.6em 1em;
-    background: #f1f1f1;
-}
-blockquote blockquote {
-    padding: 0 0 0 1em;
-    margin-left: 2em;
-    border-left: 0.4em solid #ddd;
-}
-
 /* Firefox 以外，元素没有下划线，需添加 */
 acronym, abbr {
     border-bottom: 1px dotted;
@@ -178,7 +166,7 @@ small {
 /* 保证块/段落之间的空白隔行 */
 .typo p, .typo pre, .typo ul, .typo ol, .typo dl, .typo form, .typo hr, .typo table,
 .typo-p, .typo-pre, .typo-ul, .typo-ol, .typo-dl, .typo-form, .typo-hr, .typo-table {
-    margin-bottom: 1em;
+    margin-bottom: 0;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -190,7 +178,7 @@ h1, h2, h3, h4, h5, h6{
 /* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
 .typo h1, .typo h2, .typo h3, .typo h4, .typo h5, .typo h6,
 .typo-h1, .typo-h2, .typo-h3, .typo-h4, .typo-h5, .typo-h6 {
-    margin-bottom: 0.4em;
+    margin-bottom: 0;
     line-height: 1.5;
 }
 .typo h1, .typo-h1 {
@@ -207,24 +195,6 @@ h1, h2, h3, h4, h5, h6{
 }
 .typo h5, .typo h6, .typo-h5, .typo-h6 {
     font-size: 1em;
-}
-
-/* 在文章中，应该还原 ul 和 ol 的样式 */
-.typo ul, .typo-ul {
-    margin-left: 1.3em;
-    list-style: disc;
-}
-.typo ol, .typo-ol {
-    list-style: decimal;
-    margin-left: 1.9em;
-}
-.typo li ul, .typo li ol, .typo-ul ul, .typo-ul ol, .typo-ol ul, .typo-ol ol {
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: 2em;
-}
-.typo li ul, .typo-ul ul, .typo-ol ul {
-    list-style: circle;
 }
 
 /* 同 ul/ol，在文章中应用 table 基本格式 */
